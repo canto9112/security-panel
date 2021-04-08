@@ -6,8 +6,7 @@ from datacenter.models import get_duration_in_seconds, get_duration, is_visit_lo
 
 def passcard_info_view(request, passcode):
     passcard = Passcard.objects.get(passcode=passcode)
-
-    visits = Visit.objects.all()
+    visits = Visit.objects.filter(passcard=passcard)
 
     this_passcard_visits = []
     for visit in visits:
@@ -16,7 +15,6 @@ def passcard_info_view(request, passcode):
         entered_at = django.utils.timezone.localtime(visit.entered_at)
         seconds_duration = get_duration(visit)
         duration = get_duration_in_seconds(seconds_duration)
-        print(duration)
         passcard_info.update({
             "entered_at": entered_at,
             "duration": duration,
