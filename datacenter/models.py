@@ -42,7 +42,7 @@ def get_duration(visit):
         return duration
 
 
-def format_duration(duration):
+def get_duration_in_seconds(duration):
     return datetime.timedelta(seconds=duration)
 
 

@@ -1,7 +1,7 @@
 import django
 from django.shortcuts import render
 
-from datacenter.models import format_duration, get_duration, Visit
+from datacenter.models import get_duration_in_seconds, get_duration, Visit
 
 
 def storage_information_view(request):
@@ -13,7 +13,7 @@ def storage_information_view(request):
         user = visit.passcard.owner_name
         entered_at = django.utils.timezone.localtime(visit.entered_at)
         seconds_duration = get_duration(visit)
-        duration = format_duration(seconds_duration)
+        duration = get_duration_in_seconds(seconds_duration)
         users.update({'who_entered': user,
                       'entered_at': entered_at,
                       'duration': duration})
