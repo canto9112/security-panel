@@ -31,15 +31,10 @@ class Visit(models.Model):
 
 
 def get_duration(visit):
-    entered_at = django.utils.timezone.localtime(visit.entered_at)
-    leaved_at = visit.leaved_at
-    if leaved_at:
-        duration = (leaved_at - entered_at).seconds
-        return duration
-    else:
-        now = django.utils.timezone.localtime(leaved_at)
-        duration = (now - entered_at).seconds
-        return duration
+    local_time = django.utils.timezone.localtime
+    duration = local_time(visit.leaved_at) - local_time(visit.entered_at)
+    if 0 <= duration.seconds < 3600 * 24:
+        return duration.seconds
 
 
 def get_duration_in_seconds(duration):
