@@ -2,6 +2,7 @@ import datetime
 
 import django
 from django.db import models
+from django.utils.timezone import localtime
 
 
 class Passcard(models.Model):
@@ -31,16 +32,8 @@ class Visit(models.Model):
 
 
 def get_duration(visit):
-    local_time = django.utils.timezone.localtime
-    duration = local_time(visit.leaved_at) - local_time(visit.entered_at)
-    if 0 <= duration.seconds < 3600 * 24:
-        return duration.seconds
-
-
-# def get_duration(visit):
-#     local_time = django.utils.timezone.localtime
-#     print((local_time(visit.leaved_at) - local_time(visit.entered_at)).total_seconds)
-#     return (local_time(visit.leaved_at) - local_time(visit.entered_at)).total_seconds
+    duration = localtime(visit.leaved_at) - localtime(visit.entered_at)
+    return int(duration.total_seconds())
 
 
 def get_duration_in_seconds(duration):
@@ -50,4 +43,4 @@ def get_duration_in_seconds(duration):
 def is_visit_long(visit, minutes=60):
     minute = 60
     duration = get_duration(visit) / minute
-    return not int(duration) < minutes
+    return duration > minutes
