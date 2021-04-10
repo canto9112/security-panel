@@ -23,7 +23,7 @@ class Visit(models.Model):
     leaved_at = models.DateTimeField(null=True)
 
     def __str__(self):
-        return "{user} entered at {entered} {leaved}".format(
+        return '{user} entered at {entered} {leaved}'.format(
             user=self.passcard.owner_name,
             entered=self.entered_at,
             leaved= "leaved at " + str(self.leaved_at) if self.leaved_at else "not leaved"
@@ -35,6 +35,12 @@ def get_duration(visit):
     duration = local_time(visit.leaved_at) - local_time(visit.entered_at)
     if 0 <= duration.seconds < 3600 * 24:
         return duration.seconds
+
+
+# def get_duration(visit):
+#     local_time = django.utils.timezone.localtime
+#     print((local_time(visit.leaved_at) - local_time(visit.entered_at)).total_seconds)
+#     return (local_time(visit.leaved_at) - local_time(visit.entered_at)).total_seconds
 
 
 def get_duration_in_seconds(duration):

@@ -18,5 +18,5 @@ def storage_information_view(request):
                       'entered_at': entered_at,
                       'duration': duration})
         non_closed_visits.append(users)
-    context = {"non_closed_visits": non_closed_visits}
+    context = {'non_closed_visits': non_closed_visits}
     return render(request, 'storage_information.html', context)
