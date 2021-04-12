@@ -12,11 +12,24 @@
 ```
 pip3 install -r requirements.txt
 ```
+### Как пользоваться скриптом
+
+Для работы сайта нужно создать файл ```.env``` в директории где лежит скрипт
+и указать данные для подключения к базе данных.
+
+```
+HOST=checkpoint.devboy.org
+PORT=54342
+NAME=checkpostr
+USER_BD='Suicide_Squad '
+PASSWORD_BD='DC_Entertainment'
+DEBUG_BD=FALSE
+```
 
 ### Запуск сайта
 Для запуска сайта вам необходимо запустить командную строку и перейти в каталог со скриптом:
 ```
->>> python3 main.py
+>>> python manage.py runserver 0.0.0.0:8000
 ```
 
 ### Цели проекта
