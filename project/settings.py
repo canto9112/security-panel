@@ -1,13 +1,25 @@
 import os
+from environs import Env
+
+
+env = Env()
+env.read_env()
+
+HOST = env('HOST')
+PORT = env('PORT')
+NAME = env('NAME')
+USER = env('USER')
+PASSWORD = env('PASSWORD')
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'checkpoint.devman.org',
-        'PORT': '5434',
-        'NAME': 'checkpoint',
-        'USER': 'guard',
-        'PASSWORD': 'osim5',
+        'HOST': HOST,
+        'PORT': PORT,
+        'NAME': NAME,
+        'USER': USER,
+        'PASSWORD': PASSWORD,
     }
 }
 
