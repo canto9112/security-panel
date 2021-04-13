@@ -24,6 +24,7 @@ NAME=checkpostr
 USER_DB='Suicide_Squad '
 PASSWORD_DB='DC_Entertainment'
 DEBUG=FALSE
+ALLOWED_HOSTS_APP='0.0.0.0'
 ```
 
 ### Запуск сайта

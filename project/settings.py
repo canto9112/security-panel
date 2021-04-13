@@ -10,8 +10,9 @@ PORT = env('PORT')
 NAME = env('NAME')
 USER = env('USER_DB')
 PASSWORD = env('PASSWORD_DB')
-DEBUG = env.bool('DEBUG')
+DEBUG = env.bool('DEBUG_APP')
 SECRET_KEY = env('SECRET_KEY')
+ALLOWED_HOSTS_APP = env.list('ALLOWED_HOSTS_APP')
 
 
 DATABASES = {
@@ -33,7 +34,7 @@ DEBUG = DEBUG
 
 ROOT_URLCONF = "project.urls"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ALLOWED_HOSTS_APP
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
