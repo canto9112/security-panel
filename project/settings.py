@@ -8,9 +8,9 @@ env.read_env()
 HOST = env('HOST')
 PORT = env('PORT')
 NAME = env('NAME')
-USER = env('USER_BD')
-PASSWORD = env('PASSWORD_BD')
-DEBUG_BD = env.bool('DEBUG_BD')
+USER = env('USER_DB')
+PASSWORD = env('PASSWORD_DB')
+DEBUG = env.bool('DEBUG')
 
 
 DATABASES = {
@@ -28,7 +28,7 @@ INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = 'REPLACE_ME'
 
-DEBUG = DEBUG_BD
+DEBUG = DEBUG
 
 ROOT_URLCONF = "project.urls"
 
