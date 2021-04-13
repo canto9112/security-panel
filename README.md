@@ -21,9 +21,9 @@ pip3 install -r requirements.txt
 HOST=checkpoint.devboy.org
 PORT=54342
 NAME=checkpostr
-USER_BD='Suicide_Squad '
-PASSWORD_BD='DC_Entertainment'
-DEBUG_BD=FALSE
+USER_DB='Suicide_Squad '
+PASSWORD_DB='DC_Entertainment'
+DEBUG=FALSE
 ```
 
 ### Запуск сайта
