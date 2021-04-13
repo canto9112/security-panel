@@ -11,6 +11,7 @@ NAME = env('NAME')
 USER = env('USER_DB')
 PASSWORD = env('PASSWORD_DB')
 DEBUG = env.bool('DEBUG')
+SECRET_KEY = env('SECRET_KEY')
 
 
 DATABASES = {
@@ -26,7 +27,7 @@ DATABASES = {
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = SECRET_KEY
 
 DEBUG = DEBUG
 
